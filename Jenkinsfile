@@ -11,6 +11,10 @@ pipeline {
                 sh 'terraform init'
             }
         }
+        stage('Terraform Plan'){
+            steps {
+                sh 'terraform plan'
+            }
         stage('Terraform Apply'){
             steps {
                 sh 'terraform apply -auto-approve'
@@ -20,6 +24,9 @@ pipeline {
             steps {
                 sh "terraform graph | dot -Tsvg > graph.svg"
             }
+        }
+        stage("Upload to S3"){
+            
         }
     }
 }
