@@ -15,6 +15,7 @@ pipeline {
             steps {
                 sh 'terraform plan'
             }
+        }
         stage('Terraform Apply'){
             steps {
                 sh 'terraform apply -auto-approve'
@@ -26,7 +27,7 @@ pipeline {
             }
         }
         stage("Upload to S3"){
-            
+            sh "echo Uploading DEMO"
         }
     }
 }
