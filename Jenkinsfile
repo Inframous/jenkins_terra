@@ -16,5 +16,10 @@ pipeline {
                 sh 'terraform apply -auto-approve'
             }
         }
+        stage("Terraform Graph"){
+            steps {
+                sh "terraform graph | dot -Tsvg > graph.svg"
+            }
+        }
     }
 }

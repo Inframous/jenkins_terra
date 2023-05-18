@@ -8,7 +8,7 @@ resource "aws_instance" "web" {
 }
 resource "aws_s3_bucket" "jenkins-terra-ex" {
   bucket = "jenkins-terra-ex"
-
+  acl    = "public-read"
   tags = {
     Name        = "JenkinsTerra"
     Environment = "Example"
