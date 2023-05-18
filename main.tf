@@ -6,3 +6,11 @@ resource "aws_instance" "web" {
     Name = "HelloWorld"
   }
 }
+resource "aws_s3_bucket" "jenkins-terra-ex" {
+  bucket = "jenkins-terra-ex"
+
+  tags = {
+    Name        = "JenkinsTerra"
+    Environment = "Example"
+  }
+}
