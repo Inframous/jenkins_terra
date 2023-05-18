@@ -27,7 +27,9 @@ pipeline {
             }
         }
         stage("Upload to S3"){
-            sh "echo Uploading DEMO"
+            steps {
+                echo "Upload Demo"
+            }
         }
     }
 }
