@@ -8,9 +8,15 @@ resource "aws_instance" "web" {
 }
 resource "aws_s3_bucket" "jenkins-terra-ex" {
   bucket = "jenkins-terra-ex"
-  acl    = "public-read"
   tags = {
     Name        = "JenkinsTerra"
     Environment = "Example"
   }
+}
+
+resource "aws_s3_bucket_acl" "jenkins-terra-ex-acl" {
+  depends_on = [aws_s3_bucket_ownership_controls.jenkins-terra-ex]
+
+  bucket = aws_s3_bucket.jenkins-terra-ex.id
+  acl    = "public-read"
 }
